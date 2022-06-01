@@ -1,0 +1,14 @@
+###Projects:
+
+  1.- [x] Cambiar los id de vino y enologo por sus nombres.
+  2.- [x] Que el score se muestre en index de vino. (listo)
+  3.- [x] Hacer un link para tabla enologist_wines, desde index de vino, de esa forma se genere la evaluación. (Listo, link se va a new de tabla intermedia)
+  4.- [x] Tratar de poner en vista de new, que no se completen los de enolgos, que estos vengan ya generados. pero si puedas hacer un check box para puntuar el vino. (Listo, se genera lista de enologos, pero no la edad)
+  5.- [] Arreglar en edit de vinos, la edad, aparece el nombre pero no edad.
+  6.- [x] Hacer relacion de revista con sus cargos en vista de enologos.
+  7.- [x] Arreglar controlador de magazine
+  8.- [x] Realizar Testing
+        [] corregir testing controller
+        [] corregir testing models
+  9.- [] falta que aparezca el nombre de la revista y el tipo de job, esta la relacion hecha, pero está no se muestra en la vista.
+ 10.- [] Arreglar funcionalidad para al momento de evaluar un vino, puedas ponerlo con su nombre y no su id.

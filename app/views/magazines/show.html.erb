@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @magazine.name %>
+</p>
+
+<%= link_to 'Editar', edit_magazine_path(@magazine) %> |
+<%= link_to 'Volver', magazines_path %>

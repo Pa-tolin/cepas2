@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Revistas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Enólogo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @magazines.each do |magazine| %>
+      <tr>
+        <td><%= magazine.name %></td>
+        <td><%= magazine.enologist_magazines.map(&:enologist_id) %></td>
+        <td><%= link_to 'Mostrar', magazine %></td>
+        <td><%= link_to 'Editar', edit_magazine_path(magazine) %></td>
+        <td><%= link_to 'Eliminar', magazine, method: :delete, data: { confirm: 'Está seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nueva revista', new_magazine_path %>
+<%= link_to "Vinos", root_path %>
+
+

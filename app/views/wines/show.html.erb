@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @wine.name %>
+</p>
+
+<p>
+  <strong>Puntaje:</strong>
+  <%= @wine.enologist_wines.map(&:score) %>
+</p>
+
+
+<%= link_to 'Editar', edit_wine_path(@wine) %> |
+<%= link_to 'Volver', wines_path %>

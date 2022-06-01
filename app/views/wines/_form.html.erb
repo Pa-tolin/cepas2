@@ -1,0 +1,47 @@
+<%= form_with(model: wine) do |form| %>
+  <% if wine.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(wine.errors.count, "error") %> prohibited this wine from being saved:</h2>
+
+      <ul>
+        <% wine.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :name %>
+  </div>
+
+  <%= form.fields_for :wine_strains do |f| %>
+
+    <div class= "field">
+      <%= f.label :strain_id %>
+      <%= f.select :strain_id, @strains, prompt: "Selecciona una alternativa" %> 
+    </div>    
+
+    <div class= "field">
+      <%= f.label :porcentaje %>
+      <%= f.number_field :percentage %> 
+    </div> 
+
+  <% end %>
+
+  <%= form.fields_for :enologist_wines do |f| %>
+
+    <div class= "field">
+      <%= f.label :enologo %>
+      <%= f.select :enologist_id, @enologists %> 
+      <%= f.label :puntaje %>
+      <%= f.number_field :score %> 
+    </div> 
+
+  <% end %>
+ 
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Puntaje de los vinos</h1>
+
+<table>
+  <thead>
+    <tr>
+        <th>Puntaje</th>
+        <th>Vino</th>
+        <th>Enólogo</th>
+        <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @enologist_wines.each do |enologist_wine| %>
+      <tr>
+        <td><%= enologist_wine.score  %></td>
+        <td><%= enologist_wine.wine.name  %></td>
+        <td><%= enologist_wine.enologist.name  %></td>
+        <td><%= link_to 'Mostrar', enologist_wine %></td>
+        <td><%= link_to 'Editar', edit_enologist_wine_path(enologist_wine) %></td>
+        <td><%= link_to 'Eliminar', enologist_wine, method: :delete, data: { confirm: 'Está seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo puntaje de Vinos', new_enologist_wine_path %>
+<%= link_to 'Vinos', wines_path %>

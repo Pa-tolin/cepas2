@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @strain.name %>
+</p>
+
+<p>
+  <strong>Disponible:</strong>
+  <%= @strain.available %>
+</p>
+
+<%= link_to 'Editar', edit_strain_path(@strain) %> |
+<%= link_to 'Volver', strains_path %>

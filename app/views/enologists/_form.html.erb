@@ -1,0 +1,71 @@
+<%= form_with(model: enologist) do |form| %>
+  <% if enologist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(enologist.errors.count, "error") %> prohibited this enologist from being saved:</h2>
+
+      <ul>
+        <% enologist.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :edad %>
+    <%= form.number_field :age %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nacionalidad %>
+    <%= form.text_field :nationality %>
+  </div>
+
+  <%= form.fields_for :magazines do |f| %>   
+
+    <div class="field">
+      <%= form.label :revistas %>
+      <%= form.collection_check_boxes(:magazine_ids, 
+                                      Magazine.all,
+                                      :id,
+                                      :name) do |b| %>
+        <%= b.label class:"label-checkbox" do %>
+          <%= b.check_box + b.text%>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= form.fields_for :enologist_magazines do |f| %>
+
+    <div class="field">
+      <%= form.label :editor %>
+      <%= form.check_box :editor %>
+    </div>  
+
+     <div class="field">
+      <%= form.label :escritor %>
+      <%= form.check_box :writer %>
+    </div> 
+
+     <div class="field">
+      <%= form.label :critico %>
+      <%= form.check_box :reviewer %>
+    </div>  
+
+  <% end %>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+<% end %>
+
+<%= link_to "Wines", root_path %>
+<%= link_to "Magazines",  magazines_path %>
